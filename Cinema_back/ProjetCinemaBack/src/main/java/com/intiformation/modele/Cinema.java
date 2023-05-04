@@ -19,7 +19,7 @@ public class Cinema {
 	private int idCinema;
 	private String nom;
 	private String localisation;
-	private int films;
+	
 	
 	@OneToMany(mappedBy = "cinema", targetEntity = Salle.class, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("cinema")
@@ -57,13 +57,6 @@ public class Cinema {
 		this.listeSalles = listeSalles;
 	}
 
-	public int getFilms() {
-		return films;
-	}
-
-	public void setFilms(int films) {
-		this.films = films;
-	}
 	
 	
 }
