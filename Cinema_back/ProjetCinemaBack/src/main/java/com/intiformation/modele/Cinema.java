@@ -2,11 +2,14 @@ package com.intiformation.modele;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Cinema {
@@ -16,11 +19,11 @@ public class Cinema {
 	private int idCinema;
 	private String nom;
 	private String localisation;
-	private int salles;
 	private int films;
 	
-@OneToMany(mappedBy = "cinema")
-//	private List<Salle> salles = new ArrayList<>();
+	@OneToMany(mappedBy = "cinema", targetEntity = Salle.class, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("cinema")
+	private List<Salle> listeSalles;
 
 	public int getIdCinema() {
 		return idCinema;
@@ -46,12 +49,12 @@ public class Cinema {
 		this.localisation = localisation;
 	}
 
-	public int getSalles() {
-		return salles;
+	public List<Salle> getListeSalles() {
+		return listeSalles;
 	}
 
-	public void setSalles(int salles) {
-		this.salles = salles;
+	public void setListeSalles(List<Salle> listeSalles) {
+		this.listeSalles = listeSalles;
 	}
 
 	public int getFilms() {
