@@ -1,5 +1,7 @@
 package com.intiformation.modele;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,13 +19,19 @@ public class Seance {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idSeance;
-	private Date heure;
+	private LocalDate date;
+	private LocalTime heure;
 	private Double prix;
 	
 	@ManyToOne
-	@JoinColumn(name="SalleId", referencedColumnName = "id_salle")
+	@JoinColumn(name="SalleId", referencedColumnName = "idSalle")
 	@JsonIgnoreProperties("listeSeance")
 	private Salle salle;
+	
+	@ManyToOne
+	@JoinColumn(name="FilmId", referencedColumnName = "idFilm")
+	@JsonIgnoreProperties("listeSeance")
+	private Film film;
 
 	public Long getIdSeance() {
 		return idSeance;
@@ -33,13 +41,6 @@ public class Seance {
 		this.idSeance = idSeance;
 	}
 
-	public Date getHeure() {
-		return heure;
-	}
-
-	public void setHeure(Date heure) {
-		this.heure = heure;
-	}
 
 	public Double getPrix() {
 		return prix;
@@ -55,6 +56,30 @@ public class Seance {
 
 	public void setSalle(Salle salle) {
 		this.salle = salle;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public LocalTime getHeure() {
+		return heure;
+	}
+
+	public void setHeure(LocalTime heure) {
+		this.heure = heure;
+	}
+
+	public Film getFilm() {
+		return film;
+	}
+
+	public void setFilm(Film film) {
+		this.film = film;
 	}
 	
 	

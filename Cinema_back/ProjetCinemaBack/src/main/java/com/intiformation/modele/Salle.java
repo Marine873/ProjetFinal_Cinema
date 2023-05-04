@@ -18,7 +18,7 @@ public class Salle {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id_salle;
+	private Long idSalle;
 	private String nb_places;
 	private String techno;
 	
@@ -47,18 +47,18 @@ public class Salle {
 	}
 
 	public Salle(Long id_salle, String nb_places, String techno, Cinema cinema) {
-		this.id_salle = id_salle;
+		this.idSalle = id_salle;
 		this.nb_places = nb_places;
 		this.techno = techno;
 		this.cinema = cinema;
 	}
 
 	public Long getId_salle() {
-		return id_salle;
+		return idSalle;
 	}
 
 	public void setId_salle(Long id_salle) {
-		this.id_salle = id_salle;
+		this.idSalle = id_salle;
 	}
 
 	public String getNb_places() {

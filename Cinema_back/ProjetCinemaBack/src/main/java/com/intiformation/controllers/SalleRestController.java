@@ -27,7 +27,7 @@ public class SalleRestController {
 		return salleService.create(salle);
 	}
 	
-	@RequestMapping(value = "/salles", method = RequestMethod.GET)
+	@RequestMapping(value = "/salle", method = RequestMethod.GET)
 	public List<Salle> getSalles(){
 		return salleService.getAllSalles();
 	}
@@ -37,7 +37,7 @@ public class SalleRestController {
 		return salleService.update(salle);
 	}
 	
-	@RequestMapping(value = "cinemas/{idCinema}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "salles/{idSalle}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable Long idSalle) {
 		salleService.delete(idSalle);
 	}
