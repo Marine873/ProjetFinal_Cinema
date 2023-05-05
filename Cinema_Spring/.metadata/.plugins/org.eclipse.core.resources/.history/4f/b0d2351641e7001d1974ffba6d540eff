@@ -1,0 +1,22 @@
+package fr.inti.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+@Transactional
+public class SalleRepo implements ISalleRepo{
+
+	@PersistenceContext
+    EntityManager entityManager;
+
+	@Override
+	public void addFilmToSalle(Long salleId, Long filmId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

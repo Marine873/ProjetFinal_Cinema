@@ -1,0 +1,66 @@
+package fr.inti.service;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.IFilmRepo;
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+
+@Service
+public class FilmService implements IFilmService{
+
+	@Autowired
+	private IFilmRepo filmRepo;
+	
+	@Override
+	public Film create(Film film) {
+		return filmRepo.save(film);
+	}
+
+	@Override
+	public List<Film> getAllFilms() {
+		return filmRepo.findAll();
+	}
+
+	@Override
+	public Film getId(Long id) {
+		return filmRepo.getFilmById(id);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		filmRepo.deleteById(id);
+	}
+
+	@Override
+	public Film updateFilmById(Long id, Film film) {
+		return filmRepo.save(film);
+	}
+
+	@Override
+	public Film getDateSortie(Timestamp date) {
+		return filmRepo.findByDateSortie(date);
+	}
+
+	@Override
+	public Film getCategorie(String categorie) {
+		return filmRepo.findByCategorie(categorie);
+	}
+
+	@Override
+	public Film getLangue(String langue) {
+		return filmRepo.findByLangue(langue);
+	}
+
+//	// récupérer la liste des salles d'un film
+//	@Override
+//    public List<Salle> findSallesByFilmId(Long filmId) {
+//        return filmRepo.findSallesByFilmId(filmId);
+//    }
+
+
+}

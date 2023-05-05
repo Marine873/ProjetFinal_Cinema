@@ -1,0 +1,45 @@
+package fr.inti.service;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.ISeanceRepo;
+import fr.inti.modele.Seance;
+
+@Service
+public class SeanceService implements ISeanceService{
+
+	@Autowired
+	private ISeanceRepo seanceRepo;
+	
+	@Override
+	public Seance create(Seance seance) {
+		return seanceRepo.save(seance);
+	}
+
+	@Override
+	public List<Seance> getAllSeances() {
+		return seanceRepo.findAll();
+	}
+
+	@Override
+	public Seance getId(Long id) {
+		return seanceRepo.getSeanceById(id);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		seanceRepo.deleteById(id);
+	}
+
+	@Override
+	public Seance updateSeanceById(Long id, Seance seance) {
+		return seanceRepo.save(seance);
+	}
+
+
+
+}
