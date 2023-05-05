@@ -1,0 +1,72 @@
+package fr.inti.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.ISalleRepo;
+import fr.inti.dao.SalleRepo;
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+
+@Service
+public class SalleService implements ISalleService {
+
+	@Autowired
+	private ISalleRepo salleRepo;
+	
+//	@Autowired
+//	private SalleRepo sRepo;
+	
+	@Override
+	public Salle create(Salle salle){
+		return salleRepo.save(salle);
+	}
+	
+	@Override
+	public List<Salle> getAllSalles(){
+		return salleRepo.findAll();
+	}
+	
+	@Override
+	public Salle getTechno(String techno){
+		return salleRepo.findByTechno(techno);
+	}
+	
+	@Override
+	public void deleteById(Long id) {
+		salleRepo.deleteById(id);
+	}
+	
+	@Override
+	public Salle updateSalleById(Long id,Salle salle){
+		return salleRepo.save(salle);
+	}
+
+	@Override
+	public Salle getId(Long id) {
+		return salleRepo.getSalleById(id);
+	}
+
+	// récupérer la liste des films d'une salle
+	@Override
+	public List<Film> findFilmsBySalleId(Long salleId) {
+		return salleRepo.findFilmsBySalleId(salleId);
+	}
+
+	// ajouter un film à une salle
+	@Override
+	public void addFilmToSalle(Long salleId, Long filmId) {
+		sRepo.addFilmToSalle(salleId, filmId);
+	}
+
+	// supprimer un film d'une salle
+	@Override
+	public void suppFilmToSalle(Long salleId, Long filmId) {
+		sRepo.suppFilmToSalle(salleId, filmId);
+	}
+
+	
+
+}

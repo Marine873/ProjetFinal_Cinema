@@ -1,0 +1,66 @@
+package fr.inti.service;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.IFilmRepo;
+import fr.inti.modele.Film;
+
+@Service
+public class FilmService implements IFilmService{
+
+	@Autowired
+	private IFilmRepo filmRepo;
+	
+	@Override
+	public Film create(Film film) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Film> getAllFilms() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Film getId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Film updateFilmById(Long id, Film film) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Film getDateSortie(Timestamp date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Film getCategorie(String categorie) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Film getLangue(String langue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

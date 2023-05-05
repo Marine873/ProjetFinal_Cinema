@@ -1,0 +1,120 @@
+package fr.inti.service;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.ISalleRepo;
+//import fr.inti.dao.SalleRepo;
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+import fr.inti.modele.Seance;
+
+@Service
+public class SalleService implements ISalleService {
+
+	@Autowired
+	private ISalleRepo salleRepo;
+	
+//	@Autowired
+//	private SalleRepo sRepo;
+	
+	@Override
+	public Salle create(Salle salle){
+		return salleRepo.save(salle);
+	}
+	
+	@Override
+	public List<Salle> getAllSalles(){
+		return salleRepo.findAll();
+	}
+	
+	@Override
+	public Salle getTechno(String techno){
+		return salleRepo.findByTechno(techno);
+	}
+	
+	@Override
+	public void deleteById(Long id) {
+		salleRepo.deleteById(id);
+	}
+	
+	@Override
+	public Salle updateSalleById(Long id,Salle salle){
+		return salleRepo.save(salle);
+	}
+
+	@Override
+	public Salle getId(Long id) {
+		return salleRepo.getSalleById(id);
+	}
+	
+	@Override
+	public List<Seance> listeSeances() {
+		return salleRepo.listeSeances();
+	}
+
+//	@Override
+//	public boolean ajouterSeance(LocalDate date, LocalTime heuredebut, LocalTime heurefin) {
+//		List<Seance> listeSeances = this.ge
+//		return false;
+//	}
+	
+//	@Override
+//	public List<Seance> ajouterSeance(Seance seance) {
+//		
+//		
+//		// vérifier si la liste est vide
+//	    if (listeSeances.isEmpty()) {
+//	        // Si la liste est vide, ajouter la séance directement
+//	        listeSeances.add(seance);
+//	    } else {
+//	        // Sinon, parcourir toutes les séances existantes pour vérifier si elles se superposent
+//	        for (Seance s : listeSeances) {
+//	            // Récupérer la date et l'heure de début de chaque séance
+//	            LocalDateTime debutSeance = LocalDateTime.of(s.getDate(), s.getHeure());
+//	            LocalDateTime debutNouvelleSeance = LocalDateTime.of(seance.getDate(), seance.getHeure());
+//	            // Calculer la durée de chaque séance (2 heures dans cet exemple)
+//	            Duration dureeSeance = Duration.ofHours(2);
+//	            // Vérifier si les deux séances se superposent
+//	            if (debutNouvelleSeance.isBefore(debutSeance.plus(dureeSeance)) &&
+//	                    debutSeance.isBefore(debutNouvelleSeance.plus(dureeSeance))) {
+//	                // Si elles se superposent, lever une exception SeanceOverlapException
+//	                throw new SeanceOverlapException("La nouvelle séance se superpose avec une séance existante.");
+//	            }
+//	        }
+//	        // Si aucune superposition n'a été détectée, ajouter la nouvelle séance
+//	        listeSeances.add(seance);
+//		
+//		return null;
+//	}
+
+
+//	// récupérer la liste des films d'une salle
+//	@Override
+//	public List<Film> findFilmsBySalleId(Long salleId) {
+//		return salleRepo.findFilmsBySalleId(salleId);
+//	}
+//
+//	// ajouter un film à une salle
+//	@Override
+//	public void addFilmToSalle(Long salleId, Long filmId) {
+//		sRepo.addFilmToSalle(salleId, filmId);
+//	}
+//
+//	// supprimer un film d'une salle
+//	@Override
+//	public void suppFilmToSalle(Long salleId, Long filmId) {
+//		sRepo.suppFilmToSalle(salleId, filmId);
+//	}
+
+	
+
+}
+
+
+
+

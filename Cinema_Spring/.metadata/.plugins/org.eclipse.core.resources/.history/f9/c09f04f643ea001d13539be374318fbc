@@ -1,0 +1,23 @@
+package fr.inti.modele;
+
+import java.time.LocalDate;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("C")
+public class Cinephile extends Utilisateur  {
+
+	private Long idCinephile;
+	private String cinemaFavori;
+
+	public Cinephile() {
+	}
+
+	public Cinephile(String nom, String prenom, int age, LocalDate dateNaissance) {
+		super(nom, prenom, age, dateNaissance);
+	}
+
+	
+}

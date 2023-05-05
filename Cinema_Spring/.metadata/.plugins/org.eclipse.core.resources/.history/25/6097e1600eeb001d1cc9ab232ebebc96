@@ -1,0 +1,22 @@
+package fr.inti.service;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+
+public interface IFilmService {
+
+	public Film create(Film film);
+	public List<Film> getAllFilms();
+	public Film getId(Long id);
+	public void deleteById(Long id);
+	public Film updateFilmById(Long id,Film film);
+	public Film getDateSortie(Timestamp date);
+	public Film getCategorie(String categorie);
+	public Film getLangue(String langue);
+	
+//	// récupérer la liste des salles d'un film
+//	public List<Salle> findSallesByFilmId(Long filmId);
+}
