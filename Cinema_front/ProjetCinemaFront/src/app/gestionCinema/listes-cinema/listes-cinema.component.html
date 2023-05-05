@@ -1,0 +1,23 @@
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col-md-2">id</th>
+        <th scope="col-md-5">Nom</th>
+        <th scope="col-md-5">localisation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cinema of cinemas">
+        <th>{{cinema.idCinema}}</th>
+        <td>{{cinema.nom}}</td>
+        <td>{{cinema.localisation}}</td>
+        <!-- <td>
+          <img [src]="pokemon.imageUrl" alt="image d'un pokemon">
+        </td> -->
+        <td>
+          <button class="btn btn-warning m-4" (click)="updateCinema(cinema)"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="btn btn-danger m-4" (click)="deleteCinema(cinema)"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
