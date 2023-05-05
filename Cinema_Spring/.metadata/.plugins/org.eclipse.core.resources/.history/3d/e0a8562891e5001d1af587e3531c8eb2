@@ -1,0 +1,15 @@
+package fr.inti.service;
+
+import java.util.List;
+
+import fr.inti.modele.Salle;
+
+public interface ISalleService {
+
+	public Salle create(Salle salle);
+	public List<Salle> getAllSalles();
+	public Salle getTechno(String techno);
+	public Salle getId(Long id_salle);
+	public void deleteById(Long id_salle);
+	public Salle updateSalleById(Long id_salle,Salle salle);
+}

@@ -1,0 +1,64 @@
+package fr.inti.modele;
+
+
+import java.time.LocalDate;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("C")
+public class Cinephile extends Utilisateur  {
+
+	private boolean cinephile;
+	private String cinemaFavori;
+
+	public Cinephile() {
+	}
+
+	public Cinephile(boolean cinephile, String cinemaFavori) {
+		this.cinephile = cinephile;
+		this.cinemaFavori = cinemaFavori;
+	}
+
+	public Cinephile(String nom, String prenom, int age, LocalDate dateNaissance, boolean cinephile,
+			String cinemaFavori) {
+		super(nom, prenom, age, dateNaissance);
+		this.cinephile = cinephile;
+		this.cinemaFavori = cinemaFavori;
+	}
+
+	public Cinephile(String nom, String prenom, int age, LocalDate dateNaissance, String login, String mp,
+			boolean cinephile, String cinemaFavori) {
+		super(nom, prenom, age, dateNaissance, login, mp);
+		this.cinephile = cinephile;
+		this.cinemaFavori = cinemaFavori;
+	}
+
+	public Cinephile(Long id, String nom, String prenom, int age, LocalDate dateNaissance, String login, String mp,
+			boolean cinephile, String cinemaFavori) {
+		super(id, nom, prenom, age, dateNaissance, login, mp);
+		this.cinephile = cinephile;
+		this.cinemaFavori = cinemaFavori;
+	}
+
+	public boolean isCinephile() {
+		return cinephile;
+	}
+
+	public void setCinephile(boolean cinephile) {
+		this.cinephile = cinephile;
+	}
+
+	public String getCinemaFavori() {
+		return cinemaFavori;
+	}
+
+	public void setCinemaFavori(String cinemaFavori) {
+		this.cinemaFavori = cinemaFavori;
+	}
+
+	
+
+	
+}

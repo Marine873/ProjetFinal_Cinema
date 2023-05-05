@@ -1,0 +1,22 @@
+package fr.inti.modele;
+
+import java.sql.Timestamp;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Film {
+
+	private Long id;
+	private String nom;
+	private String realisateur;
+	private String acteur_1;
+	private String acteur_2;
+	private Timestamp heure;
+	private Timestamp dateSortie;
+	private String synopsis;
+	private String categorie;
+	private String langue;
+	
+	
+}

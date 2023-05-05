@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?PowerDesigner signature="Workspace" version="15.1.0.2850"?>
+<!-- Veuillez ne pas modifier ce fichier -->
+
+<Workspace>
+	<Local Expanded="Yes">
+		<Model Expanded="Yes" ID="{7881DF66-8D49-463A-ACB4-F81424C2549C}" Loaded="No" Name="Projet_final_cinema" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Projet_final_cinema/Projet_final_cinema.prj"/>
+		<Model Expanded="Yes" ID="{7881DF66-8D49-463A-ACB4-F81424C2549C}" Loaded="No" Name="Projet_final_cinema" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Projet_final_cinema/Projet_final_cinema.prj"/>
+		<Model Expanded="Yes" ID="{7881DF66-8D49-463A-ACB4-F81424C2549C}" Loaded="No" Name="Projet_final_cinema" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Projet_final_cinema/Projet_final_cinema.prj"/>
+		<Model Expanded="Yes" ID="{7881DF66-8D49-463A-ACB4-F81424C2549C}" Loaded="No" Name="Projet_final_cinema" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Projet_final_cinema/Projet_final_cinema.prj"/>
+		<Model Expanded="Yes" ID="{EA4BB49D-4E56-4CEC-81BF-1FB1CDD7EE79}" Loaded="No" Name="Classes_cinema" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Projet_final_cinema/Classes_cinema.moo"/>
+		<Model Expanded="Yes" ID="{7881DF66-8D49-463A-ACB4-F81424C2549C}" Loaded="No" Name="Projet_final_cinema" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Projet_final_cinema/Projet_final_cinema.prj"/>
+		<Model Expanded="Yes" ID="{EA4BB49D-4E56-4CEC-81BF-1FB1CDD7EE79}" Loaded="No" Name="Classes_cinema" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Projet_final_cinema/Classes_cinema.moo"/>
+		<Model Expanded="Yes" ID="{EA4BB49D-4E56-4CEC-81BF-1FB1CDD7EE79}" Loaded="No" Name="Classes_cinema" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Projet_final_cinema/Classes_cinema.moo"/>
+		<Model Expanded="Yes" ID="{EA4BB49D-4E56-4CEC-81BF-1FB1CDD7EE79}" Loaded="No" Name="Classes_cinema" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Projet_final_cinema/Classes_cinema.moo"/>
+		<Model Expanded="Yes" ID="{EA4BB49D-4E56-4CEC-81BF-1FB1CDD7EE79}" Name="Classes_cinema" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Projet_final_cinema/Classes_cinema.moo"/>
+	</Local>
+	<BrowserModule Name="Référentiel"/>
+</Workspace>

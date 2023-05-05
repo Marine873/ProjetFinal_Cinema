@@ -1,0 +1,89 @@
+package fr.inti.service;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.ISeanceRepo;
+import fr.inti.modele.Seance;
+
+@Service
+public class SeanceService implements ISeanceService{
+
+	@Autowired
+	private ISeanceRepo seanceRepo;
+	
+//	@Autowired
+//	private SeanceRepo sRepo;
+	
+	@Override
+	public Seance create(Seance seance) {
+		return seanceRepo.save(seance);
+	}
+
+	@Override
+	public List<Seance> getAllSeances() {
+		return seanceRepo.findAll();
+	}
+
+	@Override
+	public Seance getId(Long id) {
+		return seanceRepo.getSeanceById(id);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		seanceRepo.deleteById(id);
+	}
+
+	@Override
+	public Seance updateSeanceById(Long id, Seance seance) {
+		return seanceRepo.save(seance);
+	}
+
+	// afficher la liste des séances pour une date
+	@Override
+	public List<Seance> getSeanceByDate(LocalDate date) {
+		return seanceRepo.getSeanceByDate(date);
+	}
+
+	// afficher la liste des séances pour une heure
+	@Override
+	public List<Seance> getSeanceByHeure(LocalTime heure) {
+		return seanceRepo.getSeanceByHeure(heure);
+	}
+
+	@Override
+	public double calculerPrixSeance(String techno, String categorie) {
+		double prixBase = 8.0;
+	    double prixSeance;
+		switch (techno) {
+	        case "4DX":
+	        	prixSeance = prixBase + 7.0;
+	            break;
+	        case "3D":
+	        	prixSeance = prixBase + 2.0;
+	            break;
+	        case "2D":
+	        	prixSeance = prixBase;
+	            break;
+	        default:
+	            throw new IllegalArgumentException("Techno invalide");
+	    }
+	    switch (categorie) {
+	        case "PG-13":
+	            return prixSeance + 1.0;
+	        case "R":
+	            return prixSeance + 2.0;
+	        default:
+	            throw new IllegalArgumentException("Catégorie invalide");
+	    }
+	}
+
+
+
+
+}

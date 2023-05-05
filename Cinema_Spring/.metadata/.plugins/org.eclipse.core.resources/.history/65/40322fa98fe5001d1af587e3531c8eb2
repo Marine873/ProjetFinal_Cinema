@@ -1,0 +1,11 @@
+package fr.inti.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import fr.inti.modele.Salle;
+
+public interface ISalleRepo extends JpaRepository<Salle, Long>{
+
+	public Salle findByTechno(String techno);	//attention : renvoi plusieurs info alors que le logiciel n'en attend qu'un
+	//public Salle getSalleById(Long id);
+}

@@ -1,0 +1,43 @@
+package fr.inti.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.inti.dao.ICinemaRepo;
+import fr.inti.modele.Cinema;
+
+@Service
+public class CinemaService implements ICinemaService{
+
+	@Autowired
+	private ICinemaRepo cineRepo;
+	
+	@Override
+	public Cinema create(Cinema cinema) {
+		return cineRepo.save(cinema);
+	}
+
+	@Override
+	public List<Cinema> getAllCinemas() {
+		return cineRepo.findAll();
+	}
+
+//	@Override
+//	public Cinema getById(Long id_cinema) {
+//		return cineRepo.findById_id_cinema(id_cinema);
+//	}
+
+	@Override
+	public void deleteById(Long id_cinema) {
+		cineRepo.deleteById(id_cinema);		
+	}
+
+	@Override
+	public Cinema updateCinemaById(Long id_cinema, Cinema cinema) {
+		return cineRepo.save(cinema);
+	}
+
+
+}

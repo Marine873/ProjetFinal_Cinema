@@ -1,0 +1,4 @@
+INDEX VERSION 1.132+C:\Users\IN-SO-023\Documents\Formation INTI\ProjetFinal\Cinema_Spring\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+4082549428.index
+2214252394.index
