@@ -1,0 +1,64 @@
+package fr.inti.controller;
+
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import fr.inti.modele.Seance;
+import fr.inti.service.ISeanceService;
+
+@RestController
+@RequestMapping("/seances")
+public class SeanceRestController {
+
+	@Autowired
+	ISeanceService seanceService;
+	
+	@PostMapping
+	public Seance create(@RequestBody Seance seance) {
+		return seanceService.create(seance);
+	}
+	
+	@GetMapping
+	public List<Seance> getSeances(){
+		return seanceService.getAllSeances();
+	}
+	
+	@GetMapping("/{id}")
+	public Seance getSeanceById(@PathVariable("id")Long id) {
+		return seanceService.getId(id);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteSeanceById(@PathVariable("id")Long id) {
+		seanceService.deleteById(id);
+	}
+	
+	@PutMapping
+	public Seance updateSeance(@PathVariable("id") Long id, @RequestBody Seance seance) {
+		return seanceService.updateSeanceById(id, seance);
+	}
+	
+	// afficher la liste des séances pour une date
+	@GetMapping("/date/{date}")
+	public List<Seance> getSeanceByDate(@PathVariable("date") LocalDate date) {
+		return seanceService.getSeanceByDate(date);
+	}
+	
+	// afficher la liste des séances pour une heure
+	@GetMapping("/heure/{heure}")
+	public List<Seance> getSeanceByHeure(@PathVariable("heure") LocalTime heure) {
+		return seanceService.getSeanceByHeure(heure);
+	}
+}
