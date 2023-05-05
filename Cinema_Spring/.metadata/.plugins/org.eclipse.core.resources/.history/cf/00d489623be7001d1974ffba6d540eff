@@ -1,0 +1,27 @@
+package fr.inti.dao;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import fr.inti.modele.Cinema;
+import fr.inti.modele.Film;
+
+public interface IFilmRepo extends JpaRepository<Film, Long>{
+
+	public Film getFilmById(Long id);	//récupère les films, les cinémas, puis les salles associés
+	public Film findByDateSortie(Timestamp date);
+	public Film findByCategorie(String categorie);
+	public Film findByLangue(String langue); 
+	
+	// récupérer la liste des films d'une salle
+    @Query("SELECT f FROM Film f JOIN f.listeSalles s WHERE s.id = :salleId")
+    public List<Film> findFilmsBySalleId(@Param("salleId") Long salleId);
+
+}

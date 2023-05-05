@@ -1,0 +1,57 @@
+package fr.inti.modele;
+
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+public class Film {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+	private String nom;
+	private String realisateur;
+	private String acteur_1;
+	private String acteur_2;
+	private Timestamp heure;
+	private Timestamp dateSortie;
+	private String synopsis;
+	private String categorie;
+	private String langue;
+	
+	@ManyToOne
+	@JoinColumn(name="cinema_Id", referencedColumnName = "id")
+	@JsonIgnoreProperties("listeFilms")
+	private Cinema cinema;
+
+	public Film() {
+	}
+
+	public Film(String nom, String realisateur, String acteur_1, String acteur_2, Timestamp heure, Timestamp dateSortie,
+			String synopsis, String categorie, String langue) {
+		super();
+		this.nom = nom;
+		this.realisateur = realisateur;
+		this.acteur_1 = acteur_1;
+		this.acteur_2 = acteur_2;
+		this.heure = heure;
+		this.dateSortie = dateSortie;
+		this.synopsis = synopsis;
+		this.categorie = categorie;
+		this.langue = langue;
+	}
+	
+	
+	
+	
+}

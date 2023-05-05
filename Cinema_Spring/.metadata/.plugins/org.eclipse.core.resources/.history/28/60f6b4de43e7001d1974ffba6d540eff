@@ -1,0 +1,43 @@
+package fr.inti.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+
+@Repository
+@Transactional
+public class SalleRepo implements ISalleRepo{
+
+	@PersistenceContext
+    EntityManager entityManager;
+
+	// récupérer la liste des films d'une salle
+	@Override
+	public List<Film> findFilmsBySalleId(Long salleId) {
+	    Salle salle = entityManager.find(Salle.class, salleId);
+	    if (salle == null) {
+	        throw new EntityNotFoundException("Salle not found for id " + salleId);
+	    }
+	    return salle.getListeFilms();
+	}
+	
+	// ajouter un film à une salle
+	public void addFilmToSalle(Long salleId, Long filmId) {
+		String sql = "INSERT INTO salle_assoc_film (Salle_Id, Film_Id) VALUES (:salleId, :filmId)";
+        Query query = entityManager.createNativeQuery(sql);
+        query.setParameter("salleId", salleId);
+        query.setParameter("filmId", filmId);
+        query.executeUpdate();
+	}
+
+	
+}

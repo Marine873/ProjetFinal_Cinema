@@ -1,0 +1,89 @@
+package fr.inti.modele;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("R")
+public class Regisseur extends Utilisateur {
+
+	private boolean regisseur;
+	private double salaire;
+	private LocalTime horaires;
+	private LocalDate dateEmbauche;
+
+	public Regisseur() {
+	}
+
+	public Regisseur(boolean regisseur, double salaire, LocalTime horaires, LocalDate dateEmbauche) {
+		this.regisseur = regisseur;
+		this.salaire = salaire;
+		this.horaires = horaires;
+		this.dateEmbauche = dateEmbauche;
+	}
+
+	public Regisseur(String nom, String prenom, int age, LocalDate dateNaissance, boolean regisseur, double salaire,
+			LocalTime horaires, LocalDate dateEmbauche) {
+		super(nom, prenom, age, dateNaissance);
+		this.regisseur = regisseur;
+		this.salaire = salaire;
+		this.horaires = horaires;
+		this.dateEmbauche = dateEmbauche;
+	}
+	
+	public Regisseur(String nom, String prenom, int age, LocalDate dateNaissance, String login, String mp,
+			boolean regisseur, double salaire, LocalTime horaires, LocalDate dateEmbauche) {
+		super(nom, prenom, age, dateNaissance, login, mp);
+		this.regisseur = regisseur;
+		this.salaire = salaire;
+		this.horaires = horaires;
+		this.dateEmbauche = dateEmbauche;
+	}
+
+	public Regisseur(Long id, String nom, String prenom, int age, LocalDate dateNaissance, String login, String mp,
+			boolean regisseur, double salaire, LocalTime horaires, LocalDate dateEmbauche) {
+		super(id, nom, prenom, age, dateNaissance, login, mp);
+		this.regisseur = regisseur;
+		this.salaire = salaire;
+		this.horaires = horaires;
+		this.dateEmbauche = dateEmbauche;
+	}
+
+	public boolean isRegisseur() {
+		return regisseur;
+	}
+
+	public void setRegisseur(boolean regisseur) {
+		this.regisseur = regisseur;
+	}
+
+	public double getSalaire() {
+		return salaire;
+	}
+
+	public void setSalaire(double salaire) {
+		this.salaire = salaire;
+	}
+
+	public LocalTime getHoraires() {
+		return horaires;
+	}
+
+	public void setHoraires(LocalTime horaires) {
+		this.horaires = horaires;
+	}
+
+	public LocalDate getDateEmbauche() {
+		return dateEmbauche;
+	}
+
+	public void setDateEmbauche(LocalDate dateEmbauche) {
+		this.dateEmbauche = dateEmbauche;
+	}
+
+	
+	
+}

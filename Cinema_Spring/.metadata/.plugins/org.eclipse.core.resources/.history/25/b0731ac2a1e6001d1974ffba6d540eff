@@ -1,0 +1,35 @@
+package fr.inti.dao;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+
+public interface ISalleRepo extends JpaRepository<Salle, Long>{
+
+	public Salle findByTechno(String techno);	//attention : renvoi plusieurs info alors que le logiciel n'en attend qu'un
+	public Salle getSalleById(Long id);
+	
+	// ajouter un film à une salle
+    @Transactional
+    @Modifying
+    @Query("INSERT INTO salle_assoc_film (Salle_Id, Film_Id) VALUES (:salleId, :filmId)")
+    public void addFilmToSalle(@Param("salleId") Long salleId, @Param("filmId") Long filmId);
+
+//    // supprimer un film d'une salle
+//    @Transactional
+//    @Modifying
+//    @Query("DELETE FROM salle_assoc_film WHERE Salle_Id = :salleId AND Film_Id = :filmId")
+//    public void removeFilmFromSalle(@Param("salleId") Long salleId, @Param("filmId") Long filmId);
+//
+//    // récupérer la liste des films d'une salle
+//    @Query("SELECT f FROM Film f JOIN f.listeSalles s WHERE s.id = :salleId")
+//    public List<Film> findFilmsBySalleId(@Param("salleId") Long salleId);
+}

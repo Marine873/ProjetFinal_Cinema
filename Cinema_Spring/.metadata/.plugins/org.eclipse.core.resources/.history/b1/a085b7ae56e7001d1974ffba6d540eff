@@ -1,0 +1,17 @@
+package fr.inti.dao;
+
+import java.sql.Timestamp;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+import fr.inti.modele.Seance;
+
+public interface ISeanceRepo extends JpaRepository<Seance, Long>{
+
+	public Seance getSeanceById(Long id);
+	public Seance getSeanceByHeure(Timestamp heure);
+//	public Seance getSeanceByFilm(Film film);
+//	public Seance getSeanceBySalle(Salle salle);
+}
