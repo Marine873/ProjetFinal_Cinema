@@ -1,0 +1,20 @@
+package fr.inti.service;
+
+import java.util.List;
+
+import fr.inti.modele.Film;
+import fr.inti.modele.Salle;
+
+public interface ISalleService {
+
+	public Salle create(Salle salle);
+	public List<Salle> getAllSalles();
+	public Salle getTechno(String techno);
+	public Salle getId(Long id);
+	public void deleteById(Long id);
+	public Salle updateSalleById(Long id,Salle salle);
+	
+	public List<Film> findFilmsBySalleId(Long salleId);
+//	public void addFilmToSalle(Long salleId, Long filmId);
+//	public void removeFilmFromSalle(Long salleId, Long filmId);
+}
